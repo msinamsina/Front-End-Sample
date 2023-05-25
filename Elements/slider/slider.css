@@ -1,0 +1,159 @@
+:root
+{
+
+}
+
+*{
+    margin: 0;
+}
+
+.slider-container
+{
+    --inactive-pointer-color: gray;
+    --active-pointer-color: black;
+    --pointer-size: 20px;
+    width: 100wv;
+    height: 100vh;
+    box-sizing: border-box;
+    border: 10px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container .slide{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: display 1s;
+}
+
+.slider-container > :nth-child(1)
+{
+    background: salmon;
+
+}
+.slider-container > :nth-child(3) > h3
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    animation: zoom-in 500ms linear forwards;
+    animation-delay: 1s;
+}
+
+.slider-container > :nth-child(3) > h3:hover
+{
+    animation: zoom-in 500ms linear forwards;
+
+    /* transform: translate(-50%, -50%) scale(5) ; */
+}
+
+
+.slider-container > :nth-child(2)
+{
+    background: darkgrey;
+}
+
+.slider-container > :nth-child(3)
+{
+    background-color: aquamarine;
+}
+
+.slide-in-right
+{
+    animation: slider-in-right 1s linear forwards;
+}
+
+.slide-in-left
+{
+    animation: slider-in-left 1s linear forwards;
+}
+
+.slide-out-right
+{
+    animation: slider-out-right 1s linear forwards;
+}
+
+.slide-out-left
+{
+    animation: slider-out-left 1s linear forwards;
+}
+
+.pointer-container
+{
+    position: absolute;
+    bottom: 0;
+    margin: auto 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    padding: auto;
+}
+
+.pointer
+{
+    width: var(--pointer-size);
+    height: var(--pointer-size);
+    border-radius: 50%;
+    background: var(--inactive-pointer-color);
+    margin: auto 10px;
+    border: 1px solid black;   
+}
+
+div.pointer:active
+{
+    width: calc(var(--pointer-size)*1.2);
+    height: calc(var(--pointer-size)*1.2);
+    background: var(--active-pointer-color);
+    
+}
+
+
+@keyframes slider-in-right{
+    0%{
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slider-in-left{
+    0%{
+        transform: translateX(-100%); 
+    }
+    100% {
+        transform: translateX(0); 
+    }
+}
+
+@keyframes slider-out-right{
+    0%{
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(100%); 
+    }
+}
+
+@keyframes slider-out-left{
+    0%{
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+@keyframes zoom-in{
+    0%{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(5);
+    }
+}
